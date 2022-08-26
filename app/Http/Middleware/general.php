@@ -19,7 +19,6 @@ class general
         if(!Auth::guard('general')->check()){
             return redirect()->route('login_from')->with('error','ログインしてください')
         }
-
         return $next($request);
     }
 }
