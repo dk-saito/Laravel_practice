@@ -22,20 +22,26 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
+
+Route::prefix('admin')->name('admin.')->group(function(){
+    // Route::get('/dashboard', function ($id) {
+    //     return view('admin.dashboard');
+    // })->middleware(['auth:admin'])->name('dashboard');
+    require __DIR__.'/admin.php';
+});
 
 //adminユーザーページ
-Route::prefix('admin')->group(function(){
-    //管理ユーザー用のビューのルーティング
-    Route::get('/login', [AdminController::class,'Index'])->name('login_from');
-    Route::post('/login/Admin_User', [AdminController::class,'Login'])->name('admin.login');
+// Route::prefix('admin')->group(function(){
+//     //管理ユーザー用のビューのルーティング
+//     Route::get('/login', [AdminController::class,'Index'])->name('login_from');
+//     Route::post('/login/Admin_User', [AdminController::class,'Login'])->name('admin.login');
 
-    Route::get('/dashboard', [AdminController::class,'Index'])->name('admin.dashboard')->middleware('admin');
-    Route::get('/logout',[AdminController::class,'Logout'])->name('admin.logout')->middleware('admin');
-});
+//     Route::get('/dashboard', [AdminController::class,'Index'])->name('admin.dashboard')->middleware('admin');
+//     Route::get('/logout',[AdminController::class,'Logout'])->name('admin.logout')->middleware('admin');
+// });
 
 //generalユーザーページ
-Route::prefix('general')->group(function(){
-//一般ユーザー用のビューのルーティング
-
-
-});
+// Route::prefix('general')->group(function(){
+// //一般ユーザー用のビューのルーティング
+// });

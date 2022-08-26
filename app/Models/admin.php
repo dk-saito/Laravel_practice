@@ -14,10 +14,10 @@ class admin extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     protected $guard='admin';
     protected $fillable=[
+        'login_id',
         'name',
         'email',
         'password',
-        'status',
     ];
     protected $hidden=[
         'password',
