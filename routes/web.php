@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controller\AdminController;
+use App\Http\Controller\ContentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,5 +38,8 @@ Route::prefix('admin')->group(function(){
 Route::prefix('general')->group(function(){
 //一般ユーザー用のビューのルーティング
 
+
+// 管理者用の動画一覧ページ
+Route::get('admin/list', [ContentsController::class, 'list']);
 
 });
