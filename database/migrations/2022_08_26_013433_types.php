@@ -16,9 +16,6 @@ return new class extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->ForeignId('contents_id')->nullable()
-            ->default(null)
-            ->constrained('contents');
             $table->timestamps();
         });
     }

@@ -32,6 +32,7 @@ return array(
     'App\\Http\\Middleware\\admin' => $baseDir . '/app/Http/Middleware/admin.php',
     'App\\Http\\Middleware\\general' => $baseDir . '/app/Http/Middleware/general.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
+    'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Content' => $baseDir . '/app/Models/Content.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\admin' => $baseDir . '/app/Models/admin.php',

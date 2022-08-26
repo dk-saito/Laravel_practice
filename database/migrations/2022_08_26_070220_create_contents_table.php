@@ -21,6 +21,8 @@ return new class extends Migration
             $table->ForeignId('admin_id')->nullable()
             ->default(null)
             ->constrained('admins');
+            $table->ForeignId('type')->constrained('types');
+            $table->ForeignId('category')->constrained('categories');
             $table->timestamps();
         });
     }

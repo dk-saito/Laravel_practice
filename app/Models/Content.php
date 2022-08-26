@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
     use HasFactory;
+
+    public function types(){
+        return $this->belongsTo(Type::class);
+    }
+
+    public function categories(){
+        return $this->belongsTo(Category::class);
+    }
+    
 }

@@ -23,14 +23,25 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-require __DIR__.'/admin.php';
 
 Route::prefix('admin')->name('admin.')->group(function(){
     // Route::get('/dashboard', function ($id) {
     //     return view('admin.dashboard');
     // })->middleware(['auth:admin'])->name('dashboard');
-    require __DIR__.'/admin.php';
+
+
+    // 動画管理のルーティング ここから↓
+
+    // 管理者用の動画一覧ページ
+    Route::get('/list', [ContentsController::class, 'list']);
+
+    // 動画アップロードページ
+    Route::get('/upload_form', function(){
+        return view('upload_form');
+    });
+
 });
+require __DIR__.'/admin.php';
 
 //adminユーザーページ
 // Route::prefix('admin')->group(function(){
@@ -42,24 +53,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
 //     Route::get('/logout',[AdminController::class,'Logout'])->name('admin.logout')->middleware('admin');
 // });
 
-<<<<<<< HEAD
+
+
+
+
+
+
 //generalユーザーページ
 // Route::prefix('general')->group(function(){
 // //一般ユーザー用のビューのルーティング
 // });
-=======
-
-});
-
-
-
-// 動画管理のルーティング ここから↓
-
-// 管理者用の動画一覧ページ
-Route::get('/list', [ContentsController::class, 'list']);
-
-// 動画アップロードページ
-Route::get('/upload_form', function(){
-    return view('upload_form');
-});
->>>>>>> f9aeccca170886cb5c3dc6d79078384c48ec8b09
