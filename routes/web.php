@@ -32,6 +32,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/dashboard', [AdminController::class,'Index'])->name('admin.dashboard')->middleware('admin');
     Route::get('/logout',[AdminController::class,'Logout'])->name('admin.logout')->middleware('admin');
 });
+
 //generalユーザーページ
 Route::prefix('general')->group(function(){
 //一般ユーザー用のビューのルーティング
