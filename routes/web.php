@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\AdminController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContentsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,7 +42,24 @@ Route::prefix('admin')->name('admin.')->group(function(){
 //     Route::get('/logout',[AdminController::class,'Logout'])->name('admin.logout')->middleware('admin');
 // });
 
+<<<<<<< HEAD
 //generalユーザーページ
 // Route::prefix('general')->group(function(){
 // //一般ユーザー用のビューのルーティング
 // });
+=======
+
+});
+
+
+
+// 動画管理のルーティング ここから↓
+
+// 管理者用の動画一覧ページ
+Route::get('/list', [ContentsController::class, 'list']);
+
+// 動画アップロードページ
+Route::get('/upload_form', function(){
+    return view('upload_form');
+});
+>>>>>>> f9aeccca170886cb5c3dc6d79078384c48ec8b09
