@@ -63,3 +63,4 @@ require __DIR__.'/admin.php';
 // Route::prefix('general')->group(function(){
 // //一般ユーザー用のビューのルーティング
 // });
+
