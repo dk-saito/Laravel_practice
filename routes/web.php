@@ -24,32 +24,43 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-//adminユーザーページ
-Route::prefix('admin')->group(function(){
-    //管理ユーザー用のビューのルーティング
-    Route::get('/login', [AdminController::class,'Index'])->name('login_from');
-    Route::post('/login/Admin_User', [AdminController::class,'Login'])->name('admin.login');
+Route::prefix('admin')->name('admin.')->group(function(){
+    // Route::get('/dashboard', function ($id) {
+    //     return view('admin.dashboard');
+    // })->middleware(['auth:admin'])->name('dashboard');
 
-    Route::get('/dashboard', [AdminController::class,'Index'])->name('admin.dashboard')->middleware('admin');
-    Route::get('/logout',[AdminController::class,'Logout'])->name('admin.logout')->middleware('admin');
+
+    // 動画管理のルーティング ここから↓
+
+    // 管理者用の動画一覧ページ
+    Route::get('/list', [ContentsController::class, 'list']);
+
+    // 動画アップロードページ
+    Route::get('/upload_form', function(){
+        return view('upload_form');
+    });
+
 });
+require __DIR__.'/admin.php';
+
+//adminユーザーページ
+// Route::prefix('admin')->group(function(){
+//     //管理ユーザー用のビューのルーティング
+//     Route::get('/login', [AdminController::class,'Index'])->name('login_from');
+//     Route::post('/login/Admin_User', [AdminController::class,'Login'])->name('admin.login');
+
+//     Route::get('/dashboard', [AdminController::class,'Index'])->name('admin.dashboard')->middleware('admin');
+//     Route::get('/logout',[AdminController::class,'Logout'])->name('admin.logout')->middleware('admin');
+// });
+
+
+
+
+
+
 
 //generalユーザーページ
-Route::prefix('general')->group(function(){
-//一般ユーザー用のビューのルーティング
+// Route::prefix('general')->group(function(){
+// //一般ユーザー用のビューのルーティング
+// });
 
-
-
-});
-
-
-
-// 動画管理のルーティング ここから↓
-
-// 管理者用の動画一覧ページ
-Route::get('/list', [ContentsController::class, 'list']);
-
-// 動画アップロードページ
-Route::get('/upload_form', function(){
-    return view('upload_form');
-});
