@@ -15,42 +15,25 @@ class ContentsController extends Controller
         return view('admin.list', compact('contents'));
     }
 
+    // コンテンツアップロード
+    public function upload_form(){
+        public function upload(Request $request){
+            // $request->validate([
+                // 'image' => 'required|max:1024|mimes:jpg,jpeg,png,gif'
+                // ]);
+                $file_path = $request->video->store('videos', 'public');
+                // print("<img src='". asset("$file_path"). "' width='300'>");
+                // print("<a href='upload_form'>画像投稿フォームに戻る</a>");
+            }
+
+        return view('admin.list');
+    }
+
 // ******************************************************************
 // ここまで完成↑
 // ******************************************************************
 
-    // タスク作成
-    public function create(){
-        return view('admin.create');
-    }
-
-    public function create_confirm(Request $request){
-        $this -> validate($request, [
-            'task_detail' => ['required'],
-            'name' => ['required'],
-            'datetime_start' => ['required'],
-            'datetime_finish' => ['required']
-        ]);
-
-        if ($request->has('back')){
-            return redirect('/taskmanagementapp/create')->withInput();
-        }
-
-        if ($request->has('create')) {
-            $new_task = new Task();
-            $new_task->task_detail = $request->task_detail;
-            $new_task->name = $request->name;
-            $new_task->datetime_start = $request->datetime_start;
-            $new_task->datetime_finish = $request->datetime_finish;
-            $new_task->status = $request->status;
-            $new_task->save();
-            return redirect('/taskmanagementapp/list');
-        }
-
-        return view('task_management_app.create_confirm', compact('request'));
-    }
-
-    // タスク削除(DELETE)
+    // コンテンツ削除(DELETE)
     public function delete_confirm($id, Request $request){
         $task_to_delete = Task::find($id);
 
