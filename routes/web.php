@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::prefix('admin')->name('admin.')->group(function(){
-    // Route::get('/dashboard', function ($id) {
+    // Route::get('/dashboard', function () {
     //     return view('admin.dashboard');
     // })->middleware(['auth:admin'])->name('dashboard');
 
@@ -40,6 +40,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         return view('upload_form');
     });
 
+    //ここ消さないでちょ
+    require __DIR__.'/admin.php';
 });
 require __DIR__.'/admin.php';
 
