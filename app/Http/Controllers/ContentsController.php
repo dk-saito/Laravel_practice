@@ -16,15 +16,18 @@ class ContentsController extends Controller
     }
 
     // コンテンツアップロード
-    public function upload_form(){
-        public function upload(Request $request){
-            // $request->validate([
-                // 'image' => 'required|max:1024|mimes:jpg,jpeg,png,gif'
-                // ]);
-                $file_path = $request->video->store('videos', 'public');
-                // print("<img src='". asset("$file_path"). "' width='300'>");
-                // print("<a href='upload_form'>画像投稿フォームに戻る</a>");
-            }
+    public function upload_form(Request $request){
+        // $request->validate([
+            // 'image' => 'required|max:1024|mimes:jpg,jpeg,png,gif'
+            // ]);
+        // $file_path = $request->video->store('videos', 'public');
+        // print("<img src='". asset("$file_path"). "' width='300'>");
+        // print("<a href='upload_form'>画像投稿フォームに戻る</a>");
+
+        $upload_content = new Content();
+        $upload_content->name = $request->video->name;
+        $upload_content->url = $file_path;
+        $upload_content->save();
 
         return view('admin.list');
     }
