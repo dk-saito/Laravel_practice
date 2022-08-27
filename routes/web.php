@@ -45,11 +45,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
 });
 require __DIR__.'/admin.php';
 
-Route::prefix('general')->name('general')->group(function(){
+Route::prefix('general')->name('general.')->group(function(){
+    Route::get('/general/dashboard', function () {
+        return view('general.dashboard');
+    })->middleware(['auth:general'])->name('dashboard');
+
 
     require __DIR__.'/general.php';
 });
-
+require __DIR__.'/general.php';
 //adminユーザーページ
 // Route::prefix('admin')->group(function(){
 //     //管理ユーザー用のビューのルーティング

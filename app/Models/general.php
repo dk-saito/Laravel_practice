@@ -17,7 +17,7 @@ class general extends Authenticatable
         'name',
         'email',
         'password',
-        'status',
+        'login_id',
     ];
     protected $hidden=[
         'password',

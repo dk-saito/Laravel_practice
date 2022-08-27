@@ -9,21 +9,20 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('admin.register') }}">
+        <form method="POST" action="{{ route('general.register')}}">
             @csrf
-
 
             <!-- Name -->
             <div>
                 <x-label for="name" :value="__('Name')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
-
+            {{-- ログインID --}}
             <div class="mt-4">
-                <x-label for="name" :value="__('Login_id')" />
+                <x-label for="login_id" :value="__('Login_id')"/>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="login_id" :value="old('login_id')" required />
+                <x-input id="login_id" class="block mt-1 w-full" type="text" name="login_id" :value="old('login_id')" required />
             </div>
 
             <!-- Email Address -->
@@ -53,7 +52,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('admin.login') }}">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('general.login') }}">
                     {{ __('Already registered?') }}
                 </a>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\General\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\general;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return view('general.auth.register');
     }
 
     /**
@@ -39,16 +40,18 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        $user = general::create([
             'name' => $request->name,
             'email' => $request->email,
+            'login_id'=>$request->login_id,
+            'points'=>0,
             'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));
 
-        Auth::login($user);
+        Auth::guard('general')->login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::GENERAL_HOME);
     }
 }
