@@ -45,6 +45,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
 });
 require __DIR__.'/admin.php';
 
+Route::prefix('general')->name('general')->group(function(){
+
+    require __DIR__.'/general.php';
+});
+
 //adminユーザーページ
 // Route::prefix('admin')->group(function(){
 //     //管理ユーザー用のビューのルーティング
