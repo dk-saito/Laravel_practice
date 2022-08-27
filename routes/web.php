@@ -46,9 +46,14 @@ Route::prefix('admin')->name('admin.')->group(function(){
 require __DIR__.'/admin.php';
 
 Route::prefix('general')->name('general.')->group(function(){
-    Route::get('/general/dashboard', function () {
+    Route::get('/dashboard', function () {
         return view('general.dashboard');
     })->middleware(['auth:general'])->name('dashboard');
+
+    //ここから一般ユーザー用(prefixでgeneralディレクトリは指定してるのでそこまではreturn以外省略できる)
+    Route::get('/list', function () {
+        return view('general.list');
+    })->middleware(['auth:general'])->name('list');
 
 
     require __DIR__.'/general.php';

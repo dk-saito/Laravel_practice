@@ -3,7 +3,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class GeneralLayout extends Component
+class AdminLayout extends Component
 {
     /**
      * Get the view / contents that represents the component.
