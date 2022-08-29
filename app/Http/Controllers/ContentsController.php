@@ -53,7 +53,7 @@ class ContentsController extends Controller
 
 // メッセージ編集(UPDATE)
 public function edit($id, Request $request){
-    $task = Content::find($id);
+    $update_content = Content::find($id);
 
     if($request->has('back')){
         return redirect('/admin/list');
@@ -69,7 +69,7 @@ public function edit($id, Request $request){
             $file_path = $request->video->store('videos', 'public');
 
             $update_content = Content::find($id);
-            $update_content->name = $request->video->name;
+            $update_content->name = $request->title;
             $update_content->admin_id=Auth::user()->id;
             $update_content->url = $file_path;
             $update_content->save();
