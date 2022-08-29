@@ -5,6 +5,39 @@
         </h2>
     </x-slot>
 
+    <style>.btn-brackets {
+        display: inline-block;
+        position: relative;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        color: #000;
+        transition: .4s;
+      }
+      .btn-brackets:hover {
+        color:#ff7f7f;
+      }
+      .btn-brackets:before, .btn-brackets:after {
+        position: absolute;
+        top: 0;
+        content:'';
+        width: 8px;
+        height: 100%;
+        display: inline-block;
+      }
+      .btn-brackets:before {
+        border-left: solid 1px #ff7f7f;
+        border-top: solid 1px #ff7f7f;
+        border-bottom: solid 1px #ff7f7f;
+        left: 0;
+      }
+      .btn-brackets:after {
+        content: '';
+        border-top: solid 1px #ff7f7f;
+        border-right: solid 1px #ff7f7f;
+        border-bottom: solid 1px #ff7f7f;
+        right: 0;
+      }</style>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -24,7 +57,9 @@
                                 <input type="text" name="title" value="{{$update_content->name}}">
                                 </label>
                                 <input type="file" name="video" value="{{$update_content->url}}">
-                                <input type="submit" value="更新">
+                                 <br><br><button type="submit" class="btn-brackets">更新</button>
+
+
                                 @csrf
                             </form>
                         </td>
@@ -33,7 +68,7 @@
                         <td>
                             <form action="">
                                 <input type="hidden" name="back">
-                                <input type="submit" value="やっぱなし">
+                                <button type="submit" class="btn-brackets">やっぱなし</button>
                                     @csrf
                             </form>
                         </td>

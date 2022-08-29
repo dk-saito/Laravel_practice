@@ -47,7 +47,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1>動画一覧</h1>
                     <a href="./upload_form" class="btn-brackets">
-                        動画アップロード
+                        新規動画アップロード
                       </a>
                     <table border='1'>
                         <tr>
