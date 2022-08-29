@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContentsController;
+use App\Http\Controllers\GeneralPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,9 +66,8 @@ Route::prefix('general')->name('general.')->group(function(){
     })->middleware(['auth:general'])->name('dashboard');
 
     //ここから一般ユーザー用(prefixでgeneralディレクトリは指定してるのでそこまではreturn以外省略できる)
-    Route::get('/list', function () {
-        return view('general.list');
-    })->middleware(['auth:general'])->name('list');
+    Route::get('/list', [GeneralPageController::class, 'list'])
+    ->middleware(['auth:general'])->name('list');
 
 
     require __DIR__.'/general.php';

@@ -45,6 +45,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <p>検索</p>
+                    <p>調べたいタイトル、要件に当てはまる言葉を入力してください</p>
+                    <form action="{{route('admin.list')}}" method="get">
+                        <input type="text" name="keyword" value="{{$keyword}}">
+                        <input type="submit" value="検索">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
                     <h1>動画一覧</h1>
                     <a href="./upload_form" class="btn-brackets">
                         新規動画アップロード
