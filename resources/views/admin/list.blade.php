@@ -25,6 +25,7 @@
                                 <td>{{$content->name}}</td>
                                 <td><video src="{{asset($content->url)}}" width='200'></td>
                                 <td>
+                                    {{$content->url}}
                                     {{-- <form action=""> --}}
                                     {{-- <input type="hidden" name="is_free" value="{{$content->is_free}}"> --}}
                                 @if($content->is_free == 1)
