@@ -39,7 +39,21 @@ Route::prefix('admin')->name('admin.')->group(function(){
     // 動画アップロードページ
     Route::get('/upload_form', function(){
         return view('admin.upload_form');})
-        ->middleware(['auth:general'])->name('upload_form');
+        ->middleware(['auth:admin'])->name('upload_form');
+
+    Route::post('/upload_form',[ContentsController::class,'upload_form'])
+        ->middleware('auth:admin')->name('upload_form');
+    //削除
+    Route::get('/delete',[ContentsController::class,'delete'])
+    ->middleware('auth:admin')->name('delete');
+    Route::post('/delete',[ContentsController::class,'delete'])
+    ->middleware('auth:admin')->name('delete');
+    //編集機能
+    Route::get('/edit',[ContentsController::class,'edit'])
+    ->middleware('auth:admin')->name('edit');
+    Route::post('/edit',[ContentsController::class,'edit'])
+    ->middleware('auth:admin')->name('edit');
+
 
     //ここ消さないでちょ
     require __DIR__.'/admin.php';
