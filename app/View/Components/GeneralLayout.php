@@ -1,9 +1,10 @@
 <?php
+
 namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class AdminLayout extends Component
+class GeneralLayout extends Component
 {
     /**
      * Get the view / contents that represents the component.
@@ -12,6 +13,6 @@ class AdminLayout extends Component
      */
     public function render()
     {
-        return view('layouts.admin');
+        return view('layouts.general');
     }
 }

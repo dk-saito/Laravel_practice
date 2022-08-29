@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\General\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class PasswordResetLinkController extends Controller
      */
     public function create()
     {
-        return view('admin.auth.forgot-password');
+        return view('general.auth.forgot-password');
     }
 
     /**
@@ -39,10 +39,9 @@ class PasswordResetLinkController extends Controller
             $request->only('email')
         );
 
-        // return $status == Password::RESET_LINK_SENT
-        //             ? back()->with('status', __($status))
-        //             : back()->withInput($request->only('email'))
-        //                     ->withErrors(['email' => __($status)]);
         return $status == Password::broker('generals')->sendResetLink($request->only('email'));
+                    // ? back()->with('status', __($status))
+                    // : back()->withInput($request->only('email'))
+                    //         ->withErrors(['email' => __($status)]);
     }
 }

@@ -44,12 +44,20 @@ class LoginRequest extends FormRequest
     public function authenticate()
     {
         $this->ensureIsNotRateLimited();
-        $this->is('admin/*') ? $guard='admin' :$guard=web;
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        // $this->is('admin/*') ? $guard='admin':$guard='web';
+        if($this->is('admin/*')){
+            $guard='admin';
+        }elseif($this->is('general/*')){
+            $guard='general';
+        }else{
+            $guard='web';
+        }
+
+        if (! Auth::guard($guard)->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'email' => __('auth.failed'),
             ]);
         }
 

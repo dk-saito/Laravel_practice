@@ -45,6 +45,20 @@ Route::prefix('admin')->name('admin.')->group(function(){
 });
 require __DIR__.'/admin.php';
 
+Route::prefix('general')->name('general.')->group(function(){
+    Route::get('/dashboard', function () {
+        return view('general.dashboard');
+    })->middleware(['auth:general'])->name('dashboard');
+
+    //ここから一般ユーザー用(prefixでgeneralディレクトリは指定してるのでそこまではreturn以外省略できる)
+    Route::get('/list', function () {
+        return view('general.list');
+    })->middleware(['auth:general'])->name('list');
+
+
+    require __DIR__.'/general.php';
+});
+require __DIR__.'/general.php';
 //adminユーザーページ
 // Route::prefix('admin')->group(function(){
 //     //管理ユーザー用のビューのルーティング
