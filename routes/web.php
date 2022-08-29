@@ -33,12 +33,13 @@ Route::prefix('admin')->name('admin.')->group(function(){
     // 動画管理のルーティング ここから↓
 
     // 管理者用の動画一覧ページ
-    Route::get('/list', [ContentsController::class, 'list']);
+    Route::get('/list', [ContentsController::class, 'list'])
+    ->middleware('auth:admin')->name('list');
 
     // 動画アップロードページ
     Route::get('/upload_form', function(){
-        return view('upload_form');
-    });
+        return view('admin.upload_form');})
+        ->middleware(['auth:general'])->name('upload_form');
 
     //ここ消さないでちょ
     require __DIR__.'/admin.php';
