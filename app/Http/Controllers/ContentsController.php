@@ -10,10 +10,15 @@ class ContentsController extends Controller
 {
     //
     // タスク一覧
-    public function list(){
-        $contents = Content::all();
-
-        return view('admin.list', compact('contents'));
+    public function list(Request $request){
+        $keyword=$request->keyword;
+        $query=Content::query();
+        if(!empty($keyword)){
+            $result=$query->where('name','LIKE',"%{$keyword}%")
+            ->orWhere('url','LIKE',"%{$keyword}%");
+        }
+        $contents=$query->get();
+        return view('admin.list',compact('contents','keyword'));
     }
 
     // コンテンツアップロード
