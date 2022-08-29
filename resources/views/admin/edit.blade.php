@@ -44,35 +44,31 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table border="1">
                     <tr>
-                    <p>タイトル:{{$update_content->name}}</p>
+                    <p>【タイトル】:{{$update_content->name}}</p>
                     <p>url:{{$update_content->url}}</p>
-                    <p>ビデオ</p>
-                    <video src="{{asset($update_content->url)}}" width='200'>
+                    <p>【ビデオ】</p>
+                    <video src="{{asset($update_content->url)}}" controls width='200'>
                     </tr>
+                    <p>----------------------------------------------------------------------------------------------------------------------</p>
                     <tr>
                         <td>
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="update">
                                 <label for="title">タイトル
-                                <input type="text" name="title" value="{{$update_content->name}}">
-                                </label>
-                                <input type="file" name="video" value="{{$update_content->url}}">
-                                 <br><br><button type="submit" class="btn-brackets">更新</button>
-
-
+                                    <input type="text" name="title" value="{{$update_content->name}}">
+                                </label><br>
+                                <label for="video">ビデオ
+                                    <input type="file" name="video" value="{{$update_content->url}}">
+                                </label><br>
+                                <button type="submit" class="btn-brackets">更新</button>
+                                @csrf
+                            </form>
+                            <form action="" >
+                                <input type="hidden" name="back">
+                                <button type="submit" class="btn-brackets">やっぱなし</button>
                                 @csrf
                             </form>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <form action="">
-                                <input type="hidden" name="back">
-                                <button type="submit" class="btn-brackets">やっぱなし</button>
-                                    @csrf
-                            </form>
-                        </td>
-                    </tr>
                 </table>
 
                 </div>
