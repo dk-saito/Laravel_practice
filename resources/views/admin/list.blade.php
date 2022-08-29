@@ -10,6 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h1>動画一覧</h1>
+                    <a href="./upload_form">動画アップロード</a>
                     <table border='1'>
                         <tr>
                             <th>ファイル名</th>
@@ -20,7 +21,7 @@
                         @foreach ($contents as $content)
                             <tr>
                                 <td>{{$content->name}}</td>
-                                <td><video src='{{$content->url}}' width='200'></td>
+                                <td><video src="{{asset($content->url)}}" width='200'></td>
                                 <td>
                                     {{-- <form action=""> --}}
                                     {{-- <input type="hidden" name="is_free" value="{{$content->is_free}}"> --}}
@@ -33,6 +34,12 @@
                             </form> --}}
                                 </td>
                                 {{-- <td>http://localhost/{{$content->filepath}}</td> --}}
+                                <td>
+                                    <button onclick="location.href='/admin/delete/{{$content->id}}'">削除</button>
+                                </td>
+                                <td>
+                                    <button onclick="location.href='/admin/edit/{{$content->id}}'">編集</button>
+                                </td>
                             </tr>
                         @endforeach
                     </table>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Content;
+use Illuminate\Support\Facades\Auth;
 
 class ContentsController extends Controller
 {
@@ -25,11 +26,12 @@ class ContentsController extends Controller
         // print("<a href='upload_form'>画像投稿フォームに戻る</a>");
 
         $upload_content = new Content();
-        $upload_content->name = $request->video->name;
+        $upload_content->name = $request->video->getClientOriginalName();
+        $upload_content->admin_id=Auth::user()->id;
         $upload_content->url = $file_path;
         $upload_content->save();
 
-        return view('admin.list');
+        return redirect('/admin/list');
     }
 
 

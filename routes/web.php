@@ -42,18 +42,17 @@ Route::prefix('admin')->name('admin.')->group(function(){
         ->middleware(['auth:admin'])->name('upload_form');
 
     Route::post('/upload_form',[ContentsController::class,'upload_form'])
-        ->middleware('auth:admin')->name('upload_form');
+        ->middleware('auth:admin');
     //削除
-    Route::get('/delete',[ContentsController::class,'delete'])
+    Route::get('/delete/{id}',[ContentsController::class,'delete'])
     ->middleware('auth:admin')->name('delete');
-    Route::post('/delete',[ContentsController::class,'delete'])
+    Route::post('/delete/{id}',[ContentsController::class,'delete'])
     ->middleware('auth:admin')->name('delete');
     //編集機能
-    Route::get('/edit',[ContentsController::class,'edit'])
+    Route::get('/edit/{id}',[ContentsController::class,'edit'])
     ->middleware('auth:admin')->name('edit');
-    Route::post('/edit',[ContentsController::class,'edit'])
-    ->middleware('auth:admin')->name('edit');
-
+    Route::post('/edit/{id}',[ContentsController::class,'edit'])
+    ->middleware('auth:admin');
 
     //ここ消さないでちょ
     require __DIR__.'/admin.php';
