@@ -17,7 +17,7 @@
                           <h2 class="text-gray-800 text-xl sm:text-2xl font-semibold mb-2 md:mb-4">{{$content->name}}</h2>
                           <p class="text-gray-500 sm:text-lg"><a href="/admin/list">トップページへ</a></p>
                         </div>
-                      </div>
+                    </div>
                 </div>
             </div>
         </div>
