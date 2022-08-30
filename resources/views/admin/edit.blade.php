@@ -60,20 +60,20 @@
 
                     <p>～編集ページ～</p>
                     <br><br>
-                    <p class="koushin">旧動画</p>
+                    <p class="koushin">旧ビデオ</p>
                     <p>【タイトル】:{{$update_content->name}}</p>
                     <p>【URL】url:{{$update_content->url}}</p>
-                    <p>【旧動画】</p>
+                    <p>【旧ビデオ】</p>
                     <video src="{{asset($update_content->url)}}" controls width='200'>
                     </tr>
-                    <p class="line">∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺
+                    <br><p class="line">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 
 
                     </p>
                     <tr>
                         <td>
                             <form action="" method="POST" enctype="multipart/form-data">
-                                <p class="koushin2">新しい動画</p>
+                               <br> <p class="koushin2">新規ビデオ</p>
 
                                 <input type="hidden" name="update">
                                 <label for="title">【タイトル】
