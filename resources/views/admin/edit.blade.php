@@ -36,7 +36,13 @@
         border-right: solid 1px #ff7f7f;
         border-bottom: solid 1px #ff7f7f;
         right: 0;
-      }</style>
+      }
+      .line{
+        color: rgb(0, 226, 173);
+      }
+
+
+      </style>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -44,12 +50,15 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table border="1">
                     <tr>
+
+                    <p>編集ページ</p>
+                    <br><br><br>
                     <p>【タイトル】:{{$update_content->name}}</p>
-                    <p>url:{{$update_content->url}}</p>
+                    <p>【URL】url:{{$update_content->url}}</p>
                     <p>【旧ビデオ】</p>
                     <video src="{{asset($update_content->url)}}" controls width='200'>
                     </tr>
-                    <p>----------------------------------------------------------------------------------------------------------------------</p>
+                    <p class="line">----------------------------------------------------------------------------------------------------------------------</p>
                     <tr>
                         <td>
                             <form action="" method="POST" enctype="multipart/form-data">
@@ -57,10 +66,11 @@
                                 <label for="title">【タイトル】
                                     <input type="text" name="title" value="{{$update_content->name}}">
                                 </label><br>
-                                <br><label for="video">【新しいビデオ】
+                                <br><label for="video">【新規ビデオ】
                                     <input type="file" name="video" value="{{$update_content->url}}">
-                                </label><br>
-                                <br><label for="memo">【備考】
+                                </label><br><br>
+                                【備考】
+                                <br><label for="memo">
                                     <textarea name="memo" id="" cols="20" rows="5" style="resize: none;">{{$update_content->memo}}</textarea>
                                 </label><br>
                                 <button type="submit" class="btn-brackets">更新</button>
