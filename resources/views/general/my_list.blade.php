@@ -120,11 +120,8 @@
 
 
             @foreach ($mylists as $mylist)
-                @if($mylist->user_id == Auth::user()->id)
                 @foreach ($contents as $content)
-                    @if ($mylist->content_id==$content->id)
-
-
+                    @if ($mylist->content_id==$content->id && $mylist->user_id == Auth::user()->id)
                     <div>
                     <div class="h-48 sm:h-60 md:h-80 bg-gray-100 overflow-hidden rounded-lg shadow-lg mb-2 sm:mb-4">
                         <a href="/general/detail/{{$mylist->content_id}}">
@@ -140,16 +137,11 @@
                             <button class="btn-brackets" type="submit">マイリストから削除</button>
                             @csrf
                         </form>
-                        <!-- social - start -->
-
-                        <!-- social - end -->
                     </div>
                     </div>
                     @endif
                 @endforeach
-                @endif
             <!-- person - end -->
-
             @endforeach
             {{--tailwind  --}}
                 </div>

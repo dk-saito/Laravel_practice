@@ -127,12 +127,44 @@
 
               <div>
                 <div class="text-indigo-500 md:text-lg font-bold">{{$content->name}}</div>
-
+                @php
+                    $count=0;
+                @endphp
+                @if (!$mylists->isEmpty())
+                @foreach ($mylists as $mylist)
+                    @if ($mylist->user_id == Auth::user()->id)
+                        @if ($mylist->content_id==$content->id && $count ==0)
+                        @php
+                            $count+=1;
+                        @endphp
+                        <form action="/general/delete_my_list/{{$content->id}}" method="POST" style="float: left">
+                            {{-- <button class="btn-brackets" type="submit" onclick="location.href='/general/add_my_list/{id}'">マイリスト登録</button> --}}
+                            <button class="btn-brackets" type="submit">マイリストから削除</button>
+                            @csrf
+                        </form>
+                        @endif
+                    @endif
+                @endforeach
+                @foreach ($mylists as $mylist)
+                    @if ($mylist->content_id!==$content->id && $count==0)
+                    @php
+                        $count+=1;
+                    @endphp
+                    <form action="/general/add_my_list/{{$content->id}}" method="POST" style="float: left">
+                        {{-- <button class="btn-brackets" type="submit" onclick="location.href='/general/add_my_list/{id}'">マイリスト登録</button> --}}
+                        <button class="btn-brackets" type="submit">マイリストに追加</button>
+                        @csrf
+                    </form>
+                    @endif
+                @endforeach
+                @endif
+                @if ($mylists->isEmpty())
                 <form action="/general/add_my_list/{{$content->id}}" method="POST" style="float: left">
                     {{-- <button class="btn-brackets" type="submit" onclick="location.href='/general/add_my_list/{id}'">マイリスト登録</button> --}}
                     <button class="btn-brackets" type="submit">マイリストに追加</button>
                     @csrf
                 </form>
+                @endif
                 <!-- social - start -->
 
                 <!-- social - end -->
