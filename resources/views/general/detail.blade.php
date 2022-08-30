@@ -16,6 +16,8 @@
                             <video src="{{asset($content->url)}}" controls width='200' alt="Photo by Minh Pham" class="w-full h-full object-cover object-center" >
                           </div>
                           <h2 class="text-gray-800 text-xl sm:text-2xl font-semibold mb-2 md:mb-4">{{$content->name}}</h2>
+                          <p>コメント</p>
+                          <h3 class="text-gray-500 sm:text-lg">{{$content->memo}}</h3>
                           <p class="text-gray-500 sm:text-lg"><a href="/general/list">トップページへ</a></p>
                         </div>
                     </div>

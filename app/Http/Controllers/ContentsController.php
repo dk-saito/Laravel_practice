@@ -38,6 +38,7 @@ class ContentsController extends Controller
         $upload_content = new Content();
         $upload_content->name = $request->video->getClientOriginalName();
         $upload_content->admin_id=Auth::user()->id;
+        $upload_content->memo=$request->memo;
         $upload_content->url = $file_path;
         $upload_content->save();
 
