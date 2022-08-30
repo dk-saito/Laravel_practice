@@ -77,8 +77,8 @@ Route::prefix('general')->name('general.')->group(function(){
 
     Route::get('/my_list', [GeneralPageController::class, 'my_list'])
     ->middleware(['auth:general'])->name('my_list');
-    Route::post('/store/{id}',[GeneralPageController::class,'store'])
-    ->middleware(['auth:general'])->name('store');;
+    Route::post('/add_my_list/{id}',[GeneralPageController::class,'add_my_list'])
+    ->middleware(['auth:general'])->name('add_my_list');;
     require __DIR__.'/general.php';
 });
 require __DIR__.'/general.php';

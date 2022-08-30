@@ -89,8 +89,10 @@
               <div>
                 <div class="text-indigo-500 md:text-lg font-bold">{{$content->name}}</div>
 
-                <form action="" method="POST" style="float: left">
-                <button class="btn-brackets" type="submit" onclick="location.href='/general/my_list/{id}'">マイリスト登録</button>
+                <form action="/general/add_my_list/{{ $content->id }}" method="POST" style="float: left">
+                    {{-- <button class="btn-brackets" type="submit" onclick="location.href='/general/add_my_list/{id}'">マイリスト登録</button> --}}
+                    <button class="btn-brackets" type="submit">マイリスト登録</button>
+                    @csrf
                 </form>
                 <!-- social - start -->
 
