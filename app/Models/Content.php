@@ -16,5 +16,9 @@ class Content extends Model
     public function categories(){
         return $this->belongsTo(Category::class);
     }
-    
+
+    public function generals(){
+        return $this->belongsToMany(General::class);
+    }
+
 }

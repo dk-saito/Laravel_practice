@@ -23,14 +23,19 @@ class GeneralPageController extends Controller
         return view('general.detail', compact('content'));
     }
     public function my_list(Request $request){
-        $contents = MyList::all();
-        return view('general.my_list', compact('contents'));
+        $my_lists = MyList::all();
+        $contents = Content::all();
+
+        return view('general.my_list', compact('contents', 'my_lists'));
     }
     public function add_my_list(Request $request, $id){
-        $new_my_list = new MyList();
-        $new_my_list->user_id = Auth::user()->id;
-        $new_my_list->content_id = $id;
-        $new_my_list->save();
+        $my_list = MyList::where('content_id', $id);
+        if($my_list == null){
+            $new_my_list = new MyList();
+            $new_my_list->user_id = Auth::user()->id;
+            $new_my_list->content_id = $id;
+            $new_my_list->save();
+        }
         return redirect('/general/list');
-}
+    }
 }

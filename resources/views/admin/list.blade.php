@@ -4,6 +4,9 @@
             {{ __('Dashboard') }}
         </h2>
 
+        {{-- <img src="{{asset('スクリーンショット (163).png')}}"> --}}
+
+</a>
 
         <style>.btn-brackets {
             display: inline-block;
@@ -37,8 +40,47 @@
             border-right: solid 1px #ff7f7f;
             border-bottom: solid 1px #ff7f7f;
             right: 0;
-          }</style>
+          }
+          </style>
+<style>
+.btn-cross {
+    display: inline-block;
+    position: relative;
+    padding: 0.25em 1em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    text-decoration: none;
+    font-weight: bold;
+    color: #03A9F4;
+  }
+  .btn-cross:before, .btn-cross:after {
+    content: '';
+    position: absolute;
+    top: -7px;
+    width: 2px;
+    height: -webkit-calc(100% + 14px);
+    height: calc(100% + 14px);
+    background-color: black;
+    transition: .3s;
+  }
+  .btn-cross:before {
+    left: 7px;
+  }
+  .btn-cross:after {
+    right: 7px;
+  }
+  .btn-cross:hover:before {
+    top: 0px;
+    left:0;
+    height: 100%;
+  }
+  .btn-cross:hover:after {
+    top: 0px;
+    right: 0;
+    height: 100%;
+  }
 
+</style>
 
 
     </x-slot>
@@ -47,7 +89,7 @@
         <div class="max-w-screen-xl px-4 md:px-8 mx-auto">
           <!-- text - start -->
           <div class="mb-10 md:mb-16">
-            <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">動画アップロード</h2>
+           <br> <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">動画アップロード</h2>
 
             <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">U-NEXT管理ページです</p>
 
@@ -60,7 +102,8 @@
                         <p>調べたいタイトル、要件に当てはまる言葉を入力してください</p>
                         <form action="{{route('admin.list')}}" method="get">
                             <input type="text" name="keyword" value="{{$keyword}}">
-                            <input type="submit" value="検索">
+                            <input type="submit" value="検索"a href="admin.list" class="btn-cross">
+                              </a>
                         </form>
 
                     </div>

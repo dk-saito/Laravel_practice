@@ -54,13 +54,13 @@
                         <td>
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="update">
-                                <label for="title">タイトル
+                                <label for="title">【タイトル】
                                     <input type="text" name="title" value="{{$update_content->name}}">
                                 </label><br>
-                                <label for="video">新しいビデオ
+                                <br><label for="video">【新しいビデオ】
                                     <input type="file" name="video" value="{{$update_content->url}}">
                                 </label><br>
-                                <label for="memo">備考
+                                <br><label for="memo">【備考】
                                     <textarea name="memo" id="" cols="20" rows="5" style="resize: none;">{{$update_content->memo}}</textarea>
                                 </label><br>
                                 <button type="submit" class="btn-brackets">更新</button>
