@@ -31,8 +31,8 @@ class general extends Authenticatable
         'email_verified_at'=>'datetime',
     ];
 
-    public function contents(){
-        return $this->belongsToMany(Content::class);
-    }
+    // public function contents(){
+    //     return $this->belongsToMany(Content::class);
+    // }
 
 }
