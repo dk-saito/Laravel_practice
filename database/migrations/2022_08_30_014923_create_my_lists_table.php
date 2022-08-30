@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('my_lists', function (Blueprint $table) {
             $table->id();
-            $table->ForeignId('user_id')
-            ->constrained('generals');
-            $table->ForeignId('content_id')
-            ->constrained('contents');
+            $table->bigInteger('user_id');
+            $table->bigInteger('content_id');
             $table->timestamps();
         });
     }

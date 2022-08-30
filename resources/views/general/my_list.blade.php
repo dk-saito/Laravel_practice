@@ -57,13 +57,13 @@
           <div class="py-12" style="text-align: right;">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    {{-- <div class="p-6 bg-white border-b border-gray-200">
+                    <div class="p-6 bg-white border-b border-gray-200">
                         <p>調べたいタイトル、要件に当てはまる言葉を入力してください</p>
-                        <form action="{{route('general.list')}}" method="get">
+                        <form action="{{route('general.my_list')}}" method="get">
                             <input type="text" name="keyword" value="{{$keyword}}">
                             <input type="submit" value="検索">
                         </form>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,11 +78,17 @@
 
           <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12">
             <!-- person - start -->
-            @foreach ($contents as $content)
-                @if($content->user_id == Auth::user()->id)
+
+
+            @foreach ($mylists as $mylist)
+                @if($mylist->user_id == Auth::user()->id)
+                @foreach ($contents as $content)
+                    @if ($mylist->content_id==$content->id)
+
+
                     <div>
                     <div class="h-48 sm:h-60 md:h-80 bg-gray-100 overflow-hidden rounded-lg shadow-lg mb-2 sm:mb-4">
-                        <a href="/general/detail/{{$content->id}}">
+                        <a href="/general/detail/{{$mylist->content_id}}">
                         <video src="{{asset($content->url)}}" width='200' loading="lazy" class="w-full h-full object-cover object-center"></video>
                         </a>
                     </div>
@@ -98,8 +104,11 @@
                         <!-- social - end -->
                     </div>
                     </div>
+                    @endif
+                @endforeach
                 @endif
             <!-- person - end -->
+
             @endforeach
             {{--tailwind  --}}
                 </div>
