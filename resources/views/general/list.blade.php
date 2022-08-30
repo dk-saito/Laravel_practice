@@ -130,7 +130,7 @@
 
                 <form action="/general/add_my_list/{{$content->id}}" method="POST" style="float: left">
                     {{-- <button class="btn-brackets" type="submit" onclick="location.href='/general/add_my_list/{id}'">マイリスト登録</button> --}}
-                    <button class="btn-brackets" type="submit">マイリスト登録</button>
+                    <button class="btn-brackets" type="submit">マイリストに追加</button>
                     @csrf
                 </form>
                 <!-- social - start -->

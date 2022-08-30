@@ -77,8 +77,13 @@ Route::prefix('general')->name('general.')->group(function(){
 
     Route::get('/my_list', [GeneralPageController::class, 'my_list'])
     ->middleware(['auth:general'])->name('my_list');
+
     Route::post('/add_my_list/{id}',[GeneralPageController::class,'add_my_list'])
     ->middleware(['auth:general'])->name('add_my_list');;
+    require __DIR__.'/general.php';
+    
+    Route::post('/delete_my_list/{id}',[GeneralPageController::class,'delete_my_list'])
+    ->middleware(['auth:general'])->name('delete_my_list');;
     require __DIR__.'/general.php';
 });
 require __DIR__.'/general.php';
