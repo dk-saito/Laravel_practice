@@ -37,7 +37,46 @@
             border-right: solid 1px #ff7f7f;
             border-bottom: solid 1px #ff7f7f;
             right: 0;
-          }</style>
+          }
+
+          .btn-cross {
+            display: inline-block;
+            position: relative;
+            padding: 0.25em 1em;
+            border-top: solid 2px gray;
+            border-bottom: solid 2px gray;
+            text-decoration: none;
+            font-weight: bold;
+            color:rgb(85, 83, 209);
+            }
+            .btn-cross:before, .btn-cross:after {
+            content: '';
+            position: absolute;
+            top: -7px;
+            width: 2px;
+            height: -webkit-calc(100% + 14px);
+            height: calc(100% + 14px);
+            background-color: rgb(0, 0, 0);
+            transition: .3s;
+            }
+            .btn-cross:before {
+            left: 7px;
+            }
+            .btn-cross:after {
+            right: 7px;
+            }
+            .btn-cross:hover:before {
+            top: 0px;
+            left:0;
+            height: 100%;
+            }
+            .btn-cross:hover:after {
+            top: 0px;
+            right: 0;
+            height: 100%;
+            }
+
+          </style>
 
 
 
@@ -61,7 +100,7 @@
                         <p>調べたいタイトル、要件に当てはまる言葉を入力してください</p>
                         <form action="{{route('general.my_list')}}" method="get">
                             <input type="text" name="keyword" value="{{$keyword}}">
-                            <input type="submit" value="検索">
+                            <input type="submit" value="検索" class="btn-cross">
                         </form>
                     </div>
                 </div>
