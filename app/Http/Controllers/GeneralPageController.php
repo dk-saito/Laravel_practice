@@ -16,7 +16,8 @@ class GeneralPageController extends Controller
             ->orWhere('url','LIKE',"%{$keyword}%");
         }
         $contents=$query->get();
-        return view('general.list',compact('contents','keyword'));
+        
+        return view('general.list',compact('contents', 'keyword'));
     }
     public function detail(Request $request,$id){
         $content=Content::find($id);
@@ -34,15 +35,16 @@ class GeneralPageController extends Controller
         return view('general.my_list', compact('contents','mylists','keyword'));
     }
     public function add_my_list(Request $request, $id){
-        $my_list = MyList::find($id);
-        if($my_list == null){
-            $new_my_list = new MyList();
-            $new_my_list->user_id = Auth::user()->id;
-            $new_my_list->content_id = $id;
-            $new_my_list->save();
+        $new_my_list = new MyList();
+        $new_my_list->user_id = Auth::user()->id;
+        $new_my_list->content_id = $id;
+        $new_my_list->save();
         return redirect('/general/list');
-        }elseif($my_list->content_id == $id){
-            $my_list->delete();
-        }
+
+    }
+    public function delete_my_list(Request $request, $id){
+        $my_list = MyList::where('content_id', $id);
+        $my_list->delete();
+        return redirect('/general/list');
     }
 }
