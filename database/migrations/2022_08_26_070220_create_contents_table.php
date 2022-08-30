@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('contents', function (Blueprint $table){
             $table->id();
             $table->string('name');
             $table->boolean('is_free')->default(true);
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->ForeignId('admin_id')->nullable()
             ->default(null)
             ->constrained('admins');
+            $table->string('memo');
             $table->ForeignId('type')->nullable()->constrained('types');
             $table->ForeignId('category')->nullable()->constrained('categories');
             $table->timestamps();
