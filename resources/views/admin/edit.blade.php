@@ -38,9 +38,16 @@
         right: 0;
       }
       .line{
-        color: rgb(0, 226, 173);
+        color: grey;
       }
 
+      .koushin{
+        color: blue;
+      }
+
+      .koushin2{
+        color: red
+      }
 
       </style>
 
@@ -51,17 +58,23 @@
                     <table border="1">
                     <tr>
 
-                    <p>編集ページ</p>
-                    <br><br><br>
+                    <p>～編集ページ～</p>
+                    <br><br>
+                    <p class="koushin">旧動画</p>
                     <p>【タイトル】:{{$update_content->name}}</p>
                     <p>【URL】url:{{$update_content->url}}</p>
-                    <p>【旧ビデオ】</p>
+                    <p>【旧動画】</p>
                     <video src="{{asset($update_content->url)}}" controls width='200'>
                     </tr>
-                    <p class="line">----------------------------------------------------------------------------------------------------------------------</p>
+                    <p class="line">∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺∺
+
+
+                    </p>
                     <tr>
                         <td>
                             <form action="" method="POST" enctype="multipart/form-data">
+                                <p class="koushin2">新しい動画</p>
+
                                 <input type="hidden" name="update">
                                 <label for="title">【タイトル】
                                     <input type="text" name="title" value="{{$update_content->name}}">
