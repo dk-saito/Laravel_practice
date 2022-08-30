@@ -21,6 +21,11 @@ class ContentsController extends Controller
         return view('admin.list',compact('contents','keyword'));
     }
 
+    public function detail($id,Request $request){
+        $content=Content::find($id);
+        return view('admin.detail', compact('content'));
+    }
+
     // コンテンツアップロード
     public function upload_form(Request $request){
         // $request->validate([

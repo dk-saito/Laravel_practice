@@ -87,7 +87,9 @@
             @foreach ($contents as $content)
             <div>
               <div class="h-48 sm:h-60 md:h-80 bg-gray-100 overflow-hidden rounded-lg shadow-lg mb-2 sm:mb-4">
-                <video src="{{asset($content->url)}}" controls width='200' loading="lazy" class="w-full h-full object-cover object-center" >
+                <a href="/admin/detail/{{$content->id}}">
+                <video src="{{asset($content->url)}}" width='200' loading="lazy" class="w-full h-full object-cover object-center"></video>
+                </a>
               </div>
 
               <div>
@@ -128,7 +130,7 @@
                         @foreach ($contents as $content)
                             <tr>
                                 <td>{{$content->name}}</td>
-                                <td><video src="{{asset($content->url)}}" controls width='200'></video></td>
+                                <td><video src="{{asset($content->url)}}" width='200'></video></td>
                                 <td>
                                     {{$content->url}}
                                     {{-- <form action=""> --}}
