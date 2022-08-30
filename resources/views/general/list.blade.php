@@ -34,7 +34,7 @@
                         <tr>
                             <th>ファイル名</th>
                             <th>動画</th>
-                            <th>URL</th>
+                            <th>マイリスト</th>
                             <th>備考</th>
                         </tr>
                         @foreach ($contents as $content)

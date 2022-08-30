@@ -37,6 +37,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/list', [ContentsController::class, 'list'])
     ->middleware('auth:admin')->name('list');
 
+    Route::get('/detail/{id}',[ContentsController::class,'detail'])
+    ->middleware('auth:admin')->name('detail');
     // 動画アップロードページ
     Route::get('/upload_form', function(){
         return view('admin.upload_form');})
@@ -69,7 +71,8 @@ Route::prefix('general')->name('general.')->group(function(){
     Route::get('/list', [GeneralPageController::class, 'list'])
     ->middleware(['auth:general'])->name('list');
 
-
+    Route::get('/detail/{id}', [GeneralPageController::class, 'detail'])
+    ->middleware(['auth:general'])->name('detail');
     require __DIR__.'/general.php';
 });
 require __DIR__.'/general.php';

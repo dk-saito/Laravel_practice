@@ -17,4 +17,8 @@ class GeneralPageController extends Controller
         $contents=$query->get();
         return view('general.list',compact('contents','keyword'));
     }
+    public function detail(Request $request,$id){
+        $content=Content::find($id);
+        return view('general.detail', compact('content'));
+    }
 }
