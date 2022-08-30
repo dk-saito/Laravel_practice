@@ -74,6 +74,10 @@ Route::prefix('general')->name('general.')->group(function(){
     Route::get('/detail/{id}', [GeneralPageController::class, 'detail'])
     ->middleware(['auth:general'])->name('detail');
     require __DIR__.'/general.php';
+
+    Route::get('/my_list/{id}', [GeneralPageController::class, 'my_list'])
+    ->middleware(['auth:general'])->name('my_list');
+    require __DIR__.'/general.php';
 });
 require __DIR__.'/general.php';
 //adminユーザーページ
