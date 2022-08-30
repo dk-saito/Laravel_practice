@@ -10,7 +10,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p>詳細ページです</p>
-
+                    {{Auth::user()->login_id}}さんようこそ
+                    <div class="bg-white py-6 sm:py-8 lg:py-12">
+                          <div class="bg-gray-100 overflow-hidden rounded-lg shadow-lg relative mb-6 md:mb-8">
+                            <video src="{{asset($content->url)}}" controls width='200' alt="Photo by Minh Pham" class="w-full h-full object-cover object-center" >
+                          </div>
+                          <h2 class="text-gray-800 text-xl sm:text-2xl font-semibold mb-2 md:mb-4">{{$content->name}}</h2>
+                          <p class="text-gray-500 sm:text-lg"><a href="/general/list">トップページへ</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
