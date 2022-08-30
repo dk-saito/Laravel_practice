@@ -42,7 +42,6 @@
 
 
     </x-slot>
-
     <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="max-w-screen-xl px-4 md:px-8 mx-auto">
           <!-- text - start -->
@@ -52,6 +51,9 @@
             <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">ようこそ!!{{Auth::user()->login_id}}さん</p>
 
           </div>
+          <div style="text-align: center">
+          <button class="btn-brackets" onclick="location.href='/general/my_list'">マイリストへ</button>
+        </div>
           <div class="py-12" style="text-align: right;">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -86,9 +88,10 @@
 
               <div>
                 <div class="text-indigo-500 md:text-lg font-bold">{{$content->name}}</div>
-                <button class="btn-brackets" onclick="location.href=''">マイリストへ</button>
-                <button class="btn-brackets" onclick="location.href='">マイリスト登録</button>
 
+                <form action="" method="POST" style="float: left">
+                <button class="btn-brackets" type="submit" onclick="location.href='/general/my_list/{id}'">マイリスト登録</button>
+                </form>
                 <!-- social - start -->
 
                 <!-- social - end -->
