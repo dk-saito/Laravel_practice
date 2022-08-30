@@ -82,6 +82,7 @@ public function edit($id, Request $request){
             $update_content = Content::find($id);
             $update_content->name = $request->title;
             $update_content->admin_id=Auth::user()->id;
+            $update_content->memo=$request->memo;
             $update_content->url = $file_path;
             $update_content->save();
             return redirect('/admin/list');
