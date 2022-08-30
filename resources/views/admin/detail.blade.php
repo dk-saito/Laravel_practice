@@ -3,6 +3,40 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
+
+        <style>.btn-brackets {
+            display: inline-block;
+            position: relative;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            color: #000;
+            transition: .4s;
+          }
+          .btn-brackets:hover {
+            color:#ff7f7f;
+          }
+          .btn-brackets:before, .btn-brackets:after {
+            position: absolute;
+            top: 0;
+            content:'';
+            width: 8px;
+            height: 100%;
+            display: inline-block;
+          }
+          .btn-brackets:before {
+            border-left: solid 1px #ff7f7f;
+            border-top: solid 1px #ff7f7f;
+            border-bottom: solid 1px #ff7f7f;
+            left: 0;
+          }
+          .btn-brackets:after {
+            content: '';
+            border-top: solid 1px #ff7f7f;
+            border-right: solid 1px #ff7f7f;
+            border-bottom: solid 1px #ff7f7f;
+            right: 0;
+          }</style>
+
     </x-slot>
 
     <div class="py-12">
@@ -14,10 +48,10 @@
                           <div class="bg-gray-100 overflow-hidden rounded-lg shadow-lg relative mb-6 md:mb-8">
                             <video src="{{asset($content->url)}}" controls width='200' alt="Photo by Minh Pham" class="w-full h-full object-cover object-center" >
                           </div>
-                          <h2 class="text-gray-800 text-xl sm:text-2xl font-semibold mb-2 md:mb-4">{{$content->name}}</h2>
-                          <p>コメント</p>
+                          <p>【動画タイトル】<h2 class="text-gray-800 text-xl sm:text-2xl font-semibold mb-2 md:mb-4">{{$content->name}}</h2>
+                          <p>【コメント】</p>
                           <h3 class="text-gray-500 sm:text-lg">{{$content->memo}}</h3>
-                          <p class="text-gray-500 sm:text-lg"><a href="/admin/list">トップページへ</a></p>
+                          <br><br><button class="btn-brackets" onclick="location.href='/general/list'">トップページへ</button>
                         </div>
                     </div>
                 </div>
