@@ -46,7 +46,7 @@
                     <tr>
                     <p>【タイトル】:{{$update_content->name}}</p>
                     <p>url:{{$update_content->url}}</p>
-                    <p>【ビデオ】</p>
+                    <p>【旧ビデオ】</p>
                     <video src="{{asset($update_content->url)}}" controls width='200'>
                     </tr>
                     <p>----------------------------------------------------------------------------------------------------------------------</p>
@@ -57,8 +57,11 @@
                                 <label for="title">タイトル
                                     <input type="text" name="title" value="{{$update_content->name}}">
                                 </label><br>
-                                <label for="video">ビデオ
+                                <label for="video">新しいビデオ
                                     <input type="file" name="video" value="{{$update_content->url}}">
+                                </label><br>
+                                <label for="memo">備考
+                                    <textarea name="memo" id="" cols="20" rows="5" style="resize: none;">{{$update_content->memo}}</textarea>
                                 </label><br>
                                 <button type="submit" class="btn-brackets">更新</button>
                                 @csrf
