@@ -21,4 +21,12 @@ class GeneralPageController extends Controller
         $content=Content::find($id);
         return view('general.detail', compact('content'));
     }
+    public function my_list(Request $request,$id){
+        // $content=Content::find($id);
+        // return view('general.detail', compact('content'));
+    }
+    public function store(Request $request,$id){
+        // $content=Content::find($id);
+        // return view('general.detail', compact('content'));
+    }
 }
