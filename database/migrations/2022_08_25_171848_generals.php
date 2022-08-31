@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('points')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

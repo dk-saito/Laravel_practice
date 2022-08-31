@@ -43,6 +43,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="bg-white py-6 sm:py-8 lg:py-12">
                         <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+                            <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">U-next</h2>
                           <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-8">アップロードフォーム</h2>
 
                           <div class="sm:h-40 grid grid-cols-2 md:grid-cols-4 sm:content-evenly bg-indigo-100 rounded-lg gap-6 p-6">
