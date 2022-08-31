@@ -77,14 +77,14 @@
 
                                 <input type="hidden" name="update">
                                 <label for="title">【タイトル】
-                                    <input type="text" name="title" value="{{$update_content->name}}">
+                                    <input type="text" name="title" value="{{$update_content->name}}" required>
                                 </label><br>
                                 <br><label for="video">【新規ビデオ】
-                                    <input type="file" name="video" value="{{$update_content->url}}">
+                                    <input type="file" name="video" value="{{$update_content->url}}" required>
                                 </label><br><br>
                                 【備考】
                                 <br><label for="memo">
-                                    <textarea name="memo" id="" cols="20" rows="5" style="resize: none;">{{$update_content->memo}}</textarea>
+                                    <textarea name="memo" id="" cols="20" rows="5" style="resize: none;" required>{{$update_content->memo}}</textarea>
                                 </label><br>
                                 <button type="submit" class="btn-brackets">更新</button>
                                 @csrf
