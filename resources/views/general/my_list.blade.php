@@ -88,7 +88,19 @@
             <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">U-next</h2>
 
             <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">ようこそ!!{{Auth::user()->login_id}}さん</p>
+            @php
 
+
+            date_default_timezone_set('Asia/Tokyo');
+                $time = date('G');
+                if (6 <= $time && $time <= 12 ){
+                            echo "今{$time}時台です、おはようございます☀";
+                        } else if (13 <= $time && $time <= 18){
+                            echo "今{$time}時台です、こんにちは◎";
+                        } else if (19 <= $time && $time <= 24){
+                            echo "今{$time}時台です、こんばんは☆";
+                        }
+            @endphp
           </div>
           <div style="text-align: center">
           <button class="btn-brackets" onclick="location.href='/general/list'">リストへ</button>

@@ -37,6 +37,22 @@
             right: 0;
           }</style>
     </x-slot>
+
+
+    @php
+
+
+                    date_default_timezone_set('Asia/Tokyo');
+                        $time = date('G');
+
+                        if (6 <= $time && $time <= 12 ){
+                            echo "今{$time}時台です、おはようございます☀";
+                        } else if (13 <= $time && $time <= 18){
+                            echo "今{$time}時台です、こんにちは◎";
+                        } else if (19 <= $time && $time <= 24){
+                            echo "今{$time}時台です、こんばんは☆";
+                        }
+                    @endphp
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

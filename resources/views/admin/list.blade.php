@@ -79,7 +79,20 @@
             }
           </style>
 
+            @php
 
+
+            date_default_timezone_set('Asia/Tokyo');
+                $time = date('G');
+
+                if (6 <= $time && $time <= 12 ){
+                            echo "今{$time}時台です、おはようございます☀";
+                        } else if (13 <= $time && $time <= 18){
+                            echo "今{$time}時台です、こんにちは◎";
+                        } else if (19 <= $time && $time <= 24){
+                            echo "今{$time}時台です、こんばんは☆";
+                        }
+            @endphp
 
 
     </x-slot>

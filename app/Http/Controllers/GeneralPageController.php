@@ -61,6 +61,6 @@ class GeneralPageController extends Controller
             ->orWhere('url','LIKE',"%{$keyword}%");
         }
         $contents=$query->get();
-        return view('general.watchlist',compact('keyword','watchlist','contents'));
+        return view('general.watchlist',compact('keyword','watchlists','contents'));
     }
 }

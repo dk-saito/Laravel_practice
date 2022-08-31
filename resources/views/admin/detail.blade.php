@@ -44,7 +44,26 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    {{$content->name}}
+
+                    <p>詳細ページです</p>
+                    ようこそ{{Auth::user()->login_id}}さん！
+                    @php
+
+
+                    date_default_timezone_set('Asia/Tokyo');
+                        $time = date('G');
+
+                        if (6 <= $time && $time <= 12 ){
+                            echo "今{$time}時台です、おはようございます☀";
+                        } else if (13 <= $time && $time <= 18){
+                            echo "今{$time}時台です、こんにちは◎";
+                        } else if (19 <= $time && $time <= 24){
+                            echo "今{$time}時台です、こんばんは☆";
+                        }
+                    @endphp
+
+
+
                     <div class="bg-white py-6 sm:py-8 lg:py-12">
                           <div class="bg-gray-100 overflow-hidden rounded-lg shadow-lg relative mb-6 md:mb-8">
                             <video src="{{asset($content->url)}}" controls width='200' alt="Photo by Minh Pham" class="w-full h-full object-cover object-center" >
