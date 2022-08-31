@@ -50,7 +50,7 @@
                             <div class="flex justify-center text-indigo-500">
                                 <form action="" method="POST" enctype="multipart/form-data">
                                 <label for="title">タイトル
-                                    <input id="title" type="text" name="title">
+                                    <input id="title" type="text" name="title" required>
                                 </label>
                             </div>
                             <!-- logo - end -->
@@ -61,7 +61,7 @@
                                 <label for="content">
                                     {{-- <p>アップロード動画</p> --}}
                                     <label for="video" style="margin-left: 10px;">ビデオ
-                                    <input id="content" style="margin-left:30px; " type="file" name="video">
+                                    <input id="content" style="margin-left:30px; " type="file" name="video" required>
                                     </label>
                                 </label>
                               {{-- <svg class="w-auto h-6 sm:h-8 lg:h-10" width="186" height="39" viewBox="0 0 186 39" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +75,7 @@
                             <div class="flex justify-center text-indigo-500">
                                 <label for="memo">備考
                                     {{-- <textarea name="memo" id="memo" cols="30" rows="1" style="resize:none;"></textarea> --}}
-                                <input id="memo" type="text" name="memo">
+                                <input id="memo" type="text" name="memo"  required>
                                 </label>
 
 
