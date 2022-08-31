@@ -22,10 +22,14 @@ class GeneralPageController extends Controller
     }
     public function detail(Request $request,$id){
         $content=Content::find($id);
-        $watchlist=new WatchList();
-        $watchlist->user_id=Auth::user()->id;
-        $watchlist->content_id=$id;
-        $watchlist->save();
+        $added_content=WatchList::find($id);
+
+        if($added_content == null){
+            $watchlist=new WatchList();
+            $watchlist->user_id=Auth::user()->id;
+            $watchlist->content_id=$id;
+            $watchlist->save();
+        }
         return view('general.detail', compact('content'));
     }
     public function my_list(Request $request){
