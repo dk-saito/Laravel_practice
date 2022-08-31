@@ -78,7 +78,7 @@
             height: 100%;
             }
           </style>
-
+        <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">ようこそ!!{{Auth::user()->login_id}}さん</p>
             @php
 
 
