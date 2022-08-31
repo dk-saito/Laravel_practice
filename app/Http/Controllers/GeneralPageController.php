@@ -23,8 +23,7 @@ class GeneralPageController extends Controller
     public function detail(Request $request,$id){
         $content=Content::find($id);
         $added_content=WatchList::find($id);
-
-        if($added_content == null){
+        if(($added_content == null) || ($added_content->content_id!=$id || $added_content->user_id!=Auth::usre()->id)){
             $watchlist=new WatchList();
             $watchlist->user_id=Auth::user()->id;
             $watchlist->content_id=$id;
