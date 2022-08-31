@@ -106,4 +106,39 @@
                 </div>
             </div>
         </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12">
+            <!-- person - start -->
+
+
+            @foreach ($watchlist as $list)
+                @foreach ($contents as $content)
+                @if ($list->user_id==Auth::user()->id && $content->id==$list->content_id)
+
+                    <div>
+                        <div class="h-48 sm:h-60 md:h-80 bg-gray-100 overflow-hidden rounded-lg shadow-lg mb-2 sm:mb-4">
+                            <a href="/general/detail/{{$list->content_id}}">
+                            <video src="{{asset($content->url)}}" width='200' loading="lazy" class="w-full h-full object-cover object-center"></video>
+                            </a>
+                        </div>
+
+                        <div>
+                            <div class="text-indigo-500 md:text-lg font-bold">{{$content->name}}</div>
+
+                            {{-- <form action="/general/delete_my_list/{{$content->id}}" method="POST" style="float: left">
+                                <button class="btn-brackets" type="submit">マイリストから削除</button>
+                                @csrf
+                            </form> --}}
+                        </div>
+                    </div>
+
+                @endif
+                @endforeach
+            <!-- person - end -->
+            @endforeach
+            {{--tailwind  --}}
+                </div>
+            </div>
+        </div>
+    </div>
 </x-general-layouts>

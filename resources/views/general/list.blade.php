@@ -92,6 +92,7 @@
           </div>
           <div style="text-align: center">
           <button class="btn-brackets" onclick="location.href='/general/my_list'">マイリストへ</button>
+          <button class="btn-brackets" onclick="location.href='/general/watchlist'">再生履歴を見る</button>
         </div>
           <div class="py-12" style="text-align: right;">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
