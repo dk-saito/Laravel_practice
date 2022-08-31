@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Content;
+use App\Models\Mylist;
 use Illuminate\Support\Facades\Auth;
 
 class ContentsController extends Controller
@@ -49,12 +50,17 @@ class ContentsController extends Controller
     // コンテンツ削除(DELETE)
     public function delete($id, Request $request){
         $contents_to_delete = Content::find($id);
-
+        $mylists=Mylist::all();
         if ($request->has('back')){
             return redirect('/admin/list');
         }
 
         if($request->has('delete')){
+            foreach($mylists as $mylist){
+            if($mylist->content_id == $id){
+                $mylist->delete();
+                }
+            }
             $contents_to_delete->delete();
             return redirect('/admin/list');
         }
