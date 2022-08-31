@@ -1,12 +1,9 @@
-<x-app-layout>
+<x-general-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
 
-        {{-- <img src="images/スクリーンショット (163).png"> --}}
-
-</a>
 
         <style>.btn-brackets {
             display: inline-block;
@@ -41,6 +38,7 @@
             border-bottom: solid 1px #ff7f7f;
             right: 0;
           }
+
           .btn-cross {
             display: inline-block;
             position: relative;
@@ -77,82 +75,35 @@
             right: 0;
             height: 100%;
             }
+
           </style>
 
 
 
-
     </x-slot>
-
     <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="max-w-screen-xl px-4 md:px-8 mx-auto">
           <!-- text - start -->
-          <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">U-next</h2>
           <div class="mb-10 md:mb-16">
-           <br> <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">動画アップロード</h2>
+            <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">U-next</h2>
 
-            <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">U-next管理ページです</p>
+            <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">ようこそ!!{{Auth::user()->login_id}}さん</p>
 
           </div>
+          <div style="text-align: center">
+          <button class="btn-brackets" onclick="location.href='/general/list'">リストへ</button>
+        </div>
           <div class="py-12" style="text-align: right;">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
-
                         <p>調べたいタイトル、要件に当てはまる言葉を入力してください</p>
-                        <form action="{{route('admin.list')}}" method="get">
+                        <form action="{{route('general.my_list')}}" method="get">
                             <input type="text" name="keyword" value="{{$keyword}}">
                             <input type="submit" value="検索" class="btn-cross">
-                              </a>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
-        <div style="text-align: center;">
-
-            <a href="./upload_form" class="btn-brackets"  >
-                新規動画アップロード
-            </a>
-        </div>
-          <!-- text - end -->
-          {{-- breeze --}}
-          <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white border-b border-gray-200">
-
-          {{-- tailwind --}}
-
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 lg:gap-x-8 gap-y-8 lg:gap-y-12">
-            <!-- person - start -->
-            @foreach ($contents as $content)
-            <div>
-              <div class="h-48 sm:h-60 md:h-80 bg-gray-100 overflow-hidden rounded-lg shadow-lg mb-2 sm:mb-4">
-                <a href="/admin/detail/{{$content->id}}">
-                <video src="{{asset($content->url)}}" width='200' loading="lazy" class="w-full h-full object-cover object-center"></video>
-                </a>
-              </div>
-
-              <div>
-                <div class="text-indigo-500 md:text-lg font-bold">〖Title〗{{$content->name}}<br>〖Update time〗{{$content->created_at}}</div>
-                <button class="btn-brackets" onclick="location.href='/admin/edit/{{$content->id}}'">編集</button>
-                <button class="btn-brackets" onclick="location.href='/admin/delete/{{$content->id}}'">削除</button>
-
-                <!-- social - start -->
-
-                <!-- social - end -->
-              </div>
-            </div>
-            <!-- person - end -->
-            @endforeach
-            {{--tailwind  --}}
-                </div>
-            </div>
-        </div>
-    </div>
-            {{-- breeze --}}
-
-    <style></style>
-</x-app-layout>
+</x-general-layouts>

@@ -74,16 +74,20 @@ Route::prefix('general')->name('general.')->group(function(){
     Route::get('/detail/{id}', [GeneralPageController::class, 'detail'])
     ->middleware(['auth:general'])->name('detail');
     require __DIR__.'/general.php';
-
+    //マイリスト機能
     Route::get('/my_list', [GeneralPageController::class, 'my_list'])
     ->middleware(['auth:general'])->name('my_list');
 
     Route::post('/add_my_list/{id}',[GeneralPageController::class,'add_my_list'])
     ->middleware(['auth:general'])->name('add_my_list');;
     require __DIR__.'/general.php';
-    
+
     Route::post('/delete_my_list/{id}',[GeneralPageController::class,'delete_my_list'])
-    ->middleware(['auth:general'])->name('delete_my_list');;
+    ->middleware(['auth:general'])->name('delete_my_list');
+
+    //再生履歴機能
+    Route::get('/watchlist', [GeneralPageController::class,'watchlist'])
+    ->middleware(['auth:general'])->name('watchlist');
     require __DIR__.'/general.php';
 });
 require __DIR__.'/general.php';
