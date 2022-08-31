@@ -36,7 +36,7 @@ class ContentsController extends Controller
         // print("<a href='upload_form'>画像投稿フォームに戻る</a>");
 
         $upload_content = new Content();
-        $upload_content->name = $request->video->getClientOriginalName();
+        $upload_content->name = $request->title;
         $upload_content->admin_id=Auth::user()->id;
         $upload_content->memo=$request->memo;
         $upload_content->url = $file_path;
