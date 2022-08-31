@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class WatchList extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+    protected $table='watch_list';
 }

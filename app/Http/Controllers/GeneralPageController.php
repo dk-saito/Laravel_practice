@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Content;
 use App\Models\MyList;
+use App\Models\WatchList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class GeneralPageController extends Controller
@@ -21,6 +22,10 @@ class GeneralPageController extends Controller
     }
     public function detail(Request $request,$id){
         $content=Content::find($id);
+        $watchlist=new WatchList();
+        $watchlist->user_id=Auth::user()->id;
+        $watchlist->content_id=$id;
+        $watchlist->save();
         return view('general.detail', compact('content'));
     }
     public function my_list(Request $request){
@@ -49,6 +54,13 @@ class GeneralPageController extends Controller
     }
     public function watchlist(Request $request){
         $keyword=$request->keyword;
-        return view('general.watchlist',compact('keyword'));
+        $watchlist=WatchList::all();
+        $query=Content::query();
+        if(!empty($keyword)){
+            $result=$query->where('name','LIKE',"%{$keyword}%")
+            ->orWhere('url','LIKE',"%{$keyword}%");
+        }
+        $contents=$query->get();
+        return view('general.watchlist',compact('keyword','watchlist','contents'));
     }
 }
