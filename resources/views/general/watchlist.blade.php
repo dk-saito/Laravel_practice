@@ -111,7 +111,7 @@
             <!-- person - start -->
 
 
-            @foreach ($watchlist as $list)
+            @foreach ($watchlists as $list)
                 @foreach ($contents as $content)
                 @if ($list->user_id==Auth::user()->id && $content->id==$list->content_id)
 

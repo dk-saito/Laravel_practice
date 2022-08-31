@@ -54,7 +54,7 @@ class GeneralPageController extends Controller
     }
     public function watchlist(Request $request){
         $keyword=$request->keyword;
-        $watchlist=WatchList::all();
+        $watchlists=WatchList::all();
         $query=Content::query();
         if(!empty($keyword)){
             $result=$query->where('name','LIKE',"%{$keyword}%")
