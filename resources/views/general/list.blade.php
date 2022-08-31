@@ -126,7 +126,11 @@
               </div>
 
               <div>
-                <div class="text-indigo-500 md:text-lg font-bold">{{$content->name}}</div>
+                <div class="text-indigo-500 md:text-lg font-bold">〖Title〗{{$content->name}}<br>
+                 〖Update time〗{{$content->created_at}}
+
+                </div>
+
                 @php
                     $count=0;
                 @endphp

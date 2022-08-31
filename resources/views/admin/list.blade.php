@@ -135,7 +135,7 @@
               </div>
 
               <div>
-                <div class="text-indigo-500 md:text-lg font-bold">{{$content->name}}</div>
+                <div class="text-indigo-500 md:text-lg font-bold">〖Title〗{{$content->name}}<br>〖Update time〗{{$content->created_at}}</div>
                 <button class="btn-brackets" onclick="location.href='/admin/edit/{{$content->id}}'">編集</button>
                 <button class="btn-brackets" onclick="location.href='/admin/delete/{{$content->id}}'">削除</button>
 
