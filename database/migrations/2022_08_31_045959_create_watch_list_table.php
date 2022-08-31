@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('content_general', function (Blueprint $table) {
+        Schema::create('watch_list', function (Blueprint $table) {
             $table->id();
-            $table->ForeignId('user_id')->constrained('generals');
-            $table->ForeignId('content_id')->constrained('contents');
+            $table->bigInteger('user_id');
+            $table->bigInteger('content_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('content_general');
+        Schema::dropIfExists('watch_list');
     }
 };
