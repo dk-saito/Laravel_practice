@@ -47,4 +47,8 @@ class GeneralPageController extends Controller
         $my_list->delete();
         return redirect('/general/list');
     }
+    public function watchlist(Request $request){
+        $keyword=$request->keyword;
+        return view('general.watchlist',compact('keyword'));
+    }
 }
