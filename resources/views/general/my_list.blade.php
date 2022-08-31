@@ -123,21 +123,20 @@
                 @foreach ($contents as $content)
                     @if ($mylist->content_id==$content->id && $mylist->user_id == Auth::user()->id)
                     <div>
-                    <div class="h-48 sm:h-60 md:h-80 bg-gray-100 overflow-hidden rounded-lg shadow-lg mb-2 sm:mb-4">
-                        <a href="/general/detail/{{$mylist->content_id}}">
-                        <video src="{{asset($content->url)}}" width='200' loading="lazy" class="w-full h-full object-cover object-center"></video>
-                        </a>
-                    </div>
+                        <div class="h-48 sm:h-60 md:h-80 bg-gray-100 overflow-hidden rounded-lg shadow-lg mb-2 sm:mb-4">
+                            <a href="/general/detail/{{$mylist->content_id}}">
+                            <video src="{{asset($content->url)}}" width='200' loading="lazy" class="w-full h-full object-cover object-center"></video>
+                            </a>
+                        </div>
 
-                    <div>
-                        <div class="text-indigo-500 md:text-lg font-bold">{{$content->name}}</div>
+                        <div>
+                            <div class="text-indigo-500 md:text-lg font-bold">{{$content->name}}</div>
 
-                        <form action="/general/delete_my_list/{{$content->id}}" method="POST" style="float: left">
-                            {{-- <button class="btn-brackets" type="submit" onclick="location.href='/general/add_my_list/{id}'">マイリスト登録</button> --}}
-                            <button class="btn-brackets" type="submit">マイリストから削除</button>
-                            @csrf
-                        </form>
-                    </div>
+                            {{-- <form action="/general/delete_my_list/{{$content->id}}" method="POST" style="float: left">
+                                <button class="btn-brackets" type="submit">マイリストから削除</button>
+                                @csrf
+                            </form> --}}
+                        </div>
                     </div>
                     @endif
                 @endforeach
